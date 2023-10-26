@@ -1,38 +1,58 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <title>Israel We Love You</title>
-  <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Israel We ❤️ You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #FFF;
+        }
+
+        .cloudinary-button {
+            font-family: 'Poppins', sans-serif;
+            border: 0;
+            box-shadow: none;
+            font-size: 2em !important;
+            border-radius: 2em !important;
+            padding: .5em .8em !important;
+        }
+    </style>
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 </head>
 
 <body>
-  <div style="text-align: center;">
-  <h1>Upload Your Message of Love and Support for Israel</h1>
-
-  <button id="upload_widget" class="cloudinary-button">Upload Video</button>
-
-  <p id="thanks"></p>
-
-  </div>
-
-  <script type="text/javascript">  
-    var myWidget = cloudinary.createUploadWidget({
-      cloudName: 'carl', 
-      uploadPreset: 'israel_videos',
-      sources: [ "local", "url"],
-      clientAllowedFormats: ["video"]}, (error, result) => { 
-        if (!error && result && result.event === "success") { 
-          console.log('Done! Here is the image info: ', result.info); 
-          document.getElementById("thanks").innerText = "Thank you for your video!";
+    <div style="text-align: center;">
+        
+        <h1>Israel We ❤️ You</h1>
+        <p>Upload Your Message of Love and Support for Israel</p>
+        <button id="upload_widget" class="cloudinary-button">Upload Video</button>
+        <p id="thanks"></p>
+        <img src="https://bes-website.s3.amazonaws.com/web-images/Israel-We-Love-You-Video.png?mtime=20231026120539&focal=none" style="width:100%;max-width:800px;" />
+    </div>
+    <script type="text/javascript">
+        var myWidget = cloudinary.createUploadWidget({
+            cloudName: 'carl',
+            uploadPreset: 'israel_videos',
+            sources: ["local", "url"],
+            clientAllowedFormats: ["video"]
+        }, (error, result) => {
+            if (!error && result && result.event === "success") {
+                console.log('Done! Here is the image info: ', result.info);
+                document.getElementById("thanks").innerText = "Thank you for your video!";
+            }
         }
-      }
-    )
-    
-    document.getElementById("upload_widget").addEventListener("click", function(){
-        myWidget.open();
-      }, false);
+        )
+        document.getElementById("upload_widget").addEventListener("click", function () {
+            myWidget.open();
+        }, false);
     </script>
-
 </body>
 
 </html>
